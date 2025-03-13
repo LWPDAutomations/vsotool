@@ -23,7 +23,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center">
           <img 
-            src="/assets/logo.svg" 
+            src="/assets/logo.png" 
             alt="De Nationale Adviesbalie" 
             className="h-10 mr-4"
           />
