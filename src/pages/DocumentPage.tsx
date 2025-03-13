@@ -46,7 +46,7 @@ const DocumentPage: React.FC = () => {
     if (clientId) {
       setSelectedClientId(clientId);
     }
-  }, [location]);
+  }, [location, addNotification]);
   
   useEffect(() => {
     const fetchClient = async () => {
@@ -66,7 +66,7 @@ const DocumentPage: React.FC = () => {
     };
 
     fetchClient();
-  }, [selectedClientId]);
+  }, [selectedClientId, addNotification]);
 
   const handleClientChange = (clientId: string) => {
     setSelectedClientId(clientId);
@@ -76,12 +76,21 @@ const DocumentPage: React.FC = () => {
   };
 
   const handleDocumentAdded = (document: DocumentUploadType) => {
-    setDocuments([...documents, document]);
+    // Gebruik functionele update voor state om racecondities te voorkomen
+    setDocuments(prevDocuments => [...prevDocuments, document]);
+    
+    console.log('Document toegevoegd:', document);
     addNotification('success', 'Document succesvol toegevoegd');
   };
 
   const handleDocumentRemoved = (index: number) => {
-    setDocuments(documents.filter((_, i) => i !== index));
+    // Gebruik functionele update voor state
+    setDocuments(prevDocuments => {
+      const updatedDocuments = [...prevDocuments];
+      updatedDocuments.splice(index, 1);
+      return updatedDocuments;
+    });
+    
     addNotification('info', 'Document verwijderd');
   };
 
