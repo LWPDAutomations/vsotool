@@ -38,14 +38,14 @@ const LoginForm: React.FC = () => {
     <Card className="max-w-md mx-auto">
       <div className="flex justify-center mb-6">
         <img 
-          src="/assets/logo.svg" 
+          src="/assets/logo.png" 
           alt="De Nationale Adviesbalie" 
           className="h-16"
         />
       </div>
 
       <h1 className="text-2xl font-bold text-center mb-6">
-        Juridisch Document Systeem
+      Welkom bij het VSO-beoordelings platform van De Nationale Adviesbalie
       </h1>
 
       <form onSubmit={handleSubmit}>

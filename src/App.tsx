@@ -4,7 +4,9 @@ import { AuthProvider } from './context/AuthContext';
 import { NotificationProvider } from './context/NotificationContext';
 import LoginPage from './pages/LoginPage';
 import ClientPage from './pages/ClientPage';
+import ClientDatabasePage from './pages/ClientDatabasePage';
 import DocumentPage from './pages/DocumentPage';
+import HelpPage from './pages/HelpPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Layout from './components/layout/Layout';
@@ -27,10 +29,26 @@ const App: React.FC = () => {
                 } 
               />
               <Route 
+                path="/clients/database" 
+                element={
+                  <Layout>
+                    <ClientDatabasePage />
+                  </Layout>
+                } 
+              />
+              <Route 
                 path="/documents" 
                 element={
                   <Layout>
                     <DocumentPage />
+                  </Layout>
+                } 
+              />
+              <Route 
+                path="/help" 
+                element={
+                  <Layout>
+                    <HelpPage />
                   </Layout>
                 } 
               />

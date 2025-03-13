@@ -78,6 +78,20 @@ export const createClient = async (client: ClientFormData): Promise<Client> => {
   return data[0];
 };
 
+export const deleteClient = async (id: string): Promise<boolean> => {
+  const { error } = await supabase
+    .from('clients')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error('Error deleting client:', error);
+    throw error;
+  }
+
+  return true;
+};
+
 // SQL voor het aanmaken van de clients tabel
 export const createClientsTable = `
 CREATE TABLE IF NOT EXISTS clients (
