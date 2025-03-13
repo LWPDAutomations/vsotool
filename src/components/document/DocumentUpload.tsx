@@ -31,6 +31,10 @@ const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentAdded }) => {
     }
   };
 
+  const removeFile = (indexToRemove: number) => {
+    setFiles(prevFiles => prevFiles.filter((_, index) => index !== indexToRemove));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -94,14 +98,29 @@ const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentAdded }) => {
                       onClick={clearSelectedFiles}
                       className="text-sm text-red-500 hover:text-red-700"
                     >
-                      Wis selectie
+                      Wis alle bestanden
                     </button>
                   </div>
                   <div className="bg-gray-50 p-3 rounded-md">
-                    <ul className="text-sm text-gray-600 list-disc list-inside">
+                    <ul className="text-sm text-gray-600">
                       {files.map((file, index) => (
-                        <li key={index} className="mb-1">
-                          {file.name} ({(file.size / 1024).toFixed(1)} KB)
+                        <li key={index} className="mb-2 flex items-center justify-between">
+                          <div className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-nab-blue mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span>{file.name} ({(file.size / 1024).toFixed(1)} KB)</span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => removeFile(index)}
+                            className="text-red-500 hover:text-red-700"
+                            title="Verwijder dit bestand"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
                         </li>
                       ))}
                     </ul>
