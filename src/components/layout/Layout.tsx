@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
       <footer className="bg-nab-blue text-white py-4">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; {new Date().getFullYear()} De Nationale Adviesbalie</p>
+          <p>&copy; {new Date().getFullYear()} PromptGorillas</p>
         </div>
       </footer>
       <Notification />
