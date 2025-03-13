@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { Client, ClientFormData } from '../types/client.types';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -8,7 +8,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Supabase URL en Anon Key moeten worden geconfigureerd in .env file');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createSupabaseClient(supabaseUrl, supabaseAnonKey);
 
 // Client functies
 export const getClients = async (): Promise<Client[]> => {

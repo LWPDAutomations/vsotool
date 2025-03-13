@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, forwardRef } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -6,13 +6,13 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   required?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ 
+const Input = forwardRef<HTMLInputElement, InputProps>(({ 
   label, 
   error, 
   required = false,
   className = '',
   ...rest 
-}) => {
+}, ref) => {
   return (
     <div className="form-group">
       {label && (
@@ -22,11 +22,14 @@ const Input: React.FC<InputProps> = ({
       )}
       <input 
         className={`input ${error ? 'border-red-500 focus:ring-red-300' : ''} ${className}`}
+        ref={ref}
         {...rest} 
       />
       {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
     </div>
   );
-};
+});
+
+Input.displayName = 'Input';
 
 export default Input;

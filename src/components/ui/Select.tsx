@@ -1,4 +1,4 @@
-import React, { SelectHTMLAttributes } from 'react';
+import React, { SelectHTMLAttributes, forwardRef } from 'react';
 
 interface Option {
   value: string;
@@ -12,14 +12,14 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   required?: boolean;
 }
 
-const Select: React.FC<SelectProps> = ({ 
+const Select = forwardRef<HTMLSelectElement, SelectProps>(({ 
   label, 
   options, 
   error, 
   required = false,
   className = '',
   ...rest 
-}) => {
+}, ref) => {
   return (
     <div className="form-group">
       {label && (
@@ -29,6 +29,7 @@ const Select: React.FC<SelectProps> = ({
       )}
       <select 
         className={`select ${error ? 'border-red-500 focus:ring-red-300' : ''} ${className}`}
+        ref={ref}
         {...rest}
       >
         <option value="">Select an option ...</option>
@@ -41,6 +42,8 @@ const Select: React.FC<SelectProps> = ({
       {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
     </div>
   );
-};
+});
+
+Select.displayName = 'Select';
 
 export default Select;
