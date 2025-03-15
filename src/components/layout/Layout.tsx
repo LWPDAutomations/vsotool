@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Reset session timer on initial render
   useEffect(() => {
     resetSessionTimer();
-  }, []);
+  }, [resetSessionTimer]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">

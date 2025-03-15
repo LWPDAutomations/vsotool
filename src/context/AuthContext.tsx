@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -52,7 +52,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, []);
 
   // Start the session timer
-  const startSessionTimer = () => {
+  const startSessionTimer = useCallback(() => {
     // Clear existing timer if it exists
     if (sessionTimer) {
       clearTimeout(sessionTimer);
@@ -64,20 +64,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }, SESSION_TIMEOUT);
     
     setSessionTimer(timer);
-  };
+  }, [sessionTimer]);
 
   // Update the last activity timestamp
-  const updateActivityTimestamp = () => {
+  const updateActivityTimestamp = useCallback(() => {
     localStorage.setItem(LAST_ACTIVITY_KEY, Date.now().toString());
-  };
+  }, []);
 
   // Reset the session timer (called on user activity)
-  const resetSessionTimer = () => {
+  const resetSessionTimer = useCallback(() => {
     if (isAuthenticated) {
       updateActivityTimestamp();
       startSessionTimer();
     }
-  };
+  }, [isAuthenticated, updateActivityTimestamp, startSessionTimer]);
 
   // Set up event listeners for user activity
   useEffect(() => {
@@ -109,9 +109,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         }
       };
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, resetSessionTimer, startSessionTimer, sessionTimer]);
 
-  const login = (username: string, password: string): boolean => {
+  const login = useCallback((username: string, password: string): boolean => {
     // Harde verificatie zoals besproken
     if (username === 'Jurist*NAB' && password === 'Jurist*NABvsoTool746#') {
       setIsAuthenticated(true);
@@ -121,9 +121,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       return true;
     }
     return false;
-  };
+  }, [updateActivityTimestamp, startSessionTimer]);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem(LAST_ACTIVITY_KEY);
@@ -132,10 +132,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       clearTimeout(sessionTimer);
       setSessionTimer(null);
     }
+  }, [sessionTimer]);
+
+  // Define value outside of jsx to prevent unnecessary re-renders
+  const contextValue = {
+    isAuthenticated,
+    login,
+    logout,
+    resetSessionTimer
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, resetSessionTimer }}>
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );
