@@ -28,7 +28,7 @@ const Header: React.FC = () => {
             className="h-10 mr-4"
           />
           <h1 className="text-xl font-semibold text-nab-blue">
-            VSO Document Systeem
+            VSO Beoordelings Systeem
           </h1>
         </div>
         
