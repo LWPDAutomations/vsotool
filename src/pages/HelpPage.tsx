@@ -391,6 +391,26 @@ const HelpPage: React.FC = () => {
                   />
                 </div>
               </li>
+              <li>
+                <p>Selecteer een jurist in het daarvoor bestemde dropdown menu. Dit is een verplichte stap voordat u de beoordeling kunt aanvragen.</p>
+                <div className="bg-gray-100 p-4 my-2 rounded-md">
+                  <img 
+                    src="/assets/help/5.9.png" 
+                    alt="Jurist selecteren" 
+                    className="mx-auto border border-gray-300 rounded-md max-w-full"
+                  />
+                </div>
+              </li>
+              <li>
+                <p>Vraag uw beoordeling aan, klik op de knop 'Beoordeling aanvragen'.</p>
+                <div className="bg-gray-100 p-4 my-2 rounded-md">
+                  <img 
+                    src="/assets/help/5.10.png" 
+                    alt="Jurist selecteren" 
+                    className="mx-auto border border-gray-300 rounded-md max-w-full"
+                  />
+                </div>
+              </li>
             </ol>
           </div>
           

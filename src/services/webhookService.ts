@@ -7,6 +7,7 @@ const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL;
 interface WebhookPayload {
   client: Client;
   documents: ProcessedDocument[];
+  jurist: string; // Added jurist field
 }
 
 export const submitAssessment = async (
@@ -35,7 +36,7 @@ export const submitAssessment = async (
           name,
           originalName: file.name,
           type: docUpload.type,
-          mimeType: file.type, // Add MIME type from the file object
+          mimeType: file.type, // MIME type from the file object
           fileContent
         });
       }
@@ -44,7 +45,8 @@ export const submitAssessment = async (
     // Stuur gegevens naar webhook
     const payload: WebhookPayload = {
       client,
-      documents: processedDocuments
+      documents: processedDocuments,
+      jurist: documentSubmission.jurist // Include jurist in the payload
     };
     
     await axios.post(WEBHOOK_URL, payload);

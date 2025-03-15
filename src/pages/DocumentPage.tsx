@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Client } from '../types/client.types';
-import { DocumentUpload as DocumentUploadType } from '../types/document.types';
+import { DocumentUpload as DocumentUploadType, JuristName } from '../types/document.types';
 import { getClients, getClientById } from '../services/supabase';
 import { submitAssessment } from '../services/webhookService';
 import { useNotification } from '../context/NotificationContext';
@@ -10,6 +10,7 @@ import Button from '../components/ui/Button';
 import ClientSelectField from '../components/client/ClientSelectField';
 import DocumentUpload from '../components/document/DocumentUpload';
 import DocumentList from '../components/document/DocumentList';
+import JuristSelect from '../components/document/JuristSelect';
 
 const DocumentPage: React.FC = () => {
   const location = useLocation();
@@ -21,6 +22,8 @@ const DocumentPage: React.FC = () => {
   const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
   const [documents, setDocuments] = useState<DocumentUploadType[]>([]);
+  const [selectedJurist, setSelectedJurist] = useState<JuristName | ''>('');
+  const [juristError, setJuristError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [clientSelectError, setClientSelectError] = useState<string | null>(null);
   
@@ -79,6 +82,8 @@ const DocumentPage: React.FC = () => {
     setSelectedClientId(null);
     setSelectedClient(null);
     setDocuments([]);
+    setSelectedJurist('');
+    setJuristError(null);
     
     // Update URL to remove clientId parameter
     navigate('/documents');
@@ -103,29 +108,45 @@ const DocumentPage: React.FC = () => {
     addNotification('info', 'Document verwijderd');
   };
 
+  const handleJuristChange = (jurist: JuristName) => {
+    setSelectedJurist(jurist);
+    setJuristError(null);
+  };
+
   const handleSubmit = async () => {
     // Validatie
+    let hasError = false;
+
     if (!selectedClient) {
       setClientSelectError('Selecteer eerst een cliënt');
-      return;
+      hasError = true;
     }
     
     if (documents.length === 0) {
       addNotification('error', 'Voeg ten minste één document toe');
-      return;
+      hasError = true;
     }
+
+    if (!selectedJurist) {
+      setJuristError('Selecteer een jurist voor de beoordeling');
+      hasError = true;
+    }
+
+    if (hasError) return;
     
     setIsSubmitting(true);
     
     try {
-      const success = await submitAssessment(selectedClient, {
-        clientId: selectedClient.id,
-        documents: documents
+      const success = await submitAssessment(selectedClient!, {
+        clientId: selectedClient!.id,
+        documents: documents,
+        jurist: selectedJurist as JuristName
       });
       
       if (success) {
-        addNotification('success', 'Beoordeling succesvol aangevraagd. U ontvangt de resultaten binnen 5 minuten in uw e-mail.');
+        addNotification('success', `Beoordeling succesvol aangevraagd en toegewezen aan ${selectedJurist}. U ontvangt de resultaten binnen 5 minuten in uw e-mail.`);
         setDocuments([]);
+        setSelectedJurist('');
       } else {
         addNotification('error', 'Er is een fout opgetreden bij het aanvragen van de beoordeling');
       }
@@ -194,14 +215,27 @@ const DocumentPage: React.FC = () => {
           />
           
           {documents.length > 0 && (
-            <div className="flex justify-end">
-              <Button 
-                onClick={handleSubmit} 
-                isLoading={isSubmitting}
-              >
-                Beoordeling aanvragen
-              </Button>
-            </div>
+            <Card title="Jurist toewijzen" className="bg-blue-50 border border-blue-200">
+              <div className="mb-4">
+                <p className="text-blue-800 mb-2">
+                  <strong>Belangrijk:</strong> Selecteer de jurist die deze documenten gaat beoordelen.
+                </p>
+                <JuristSelect
+                  value={selectedJurist}
+                  onChange={handleJuristChange}
+                  error={juristError || undefined}
+                />
+              </div>
+
+              <div className="flex justify-end mt-4">
+                <Button 
+                  onClick={handleSubmit} 
+                  isLoading={isSubmitting}
+                >
+                  Beoordeling aanvragen
+                </Button>
+              </div>
+            </Card>
           )}
         </>
       )}

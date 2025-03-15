@@ -17,6 +17,8 @@ export type DocumentType =
   | 'Beoordelings/functioneringsverslag'
   | 'Overig'; // Keep the "Overig" option for any other document types
 
+export type JuristName = 'Ilse Kers' | 'Linda Lemckert' | 'Lars';
+
 export interface DocumentUpload {
   type: DocumentType;
   files: File[];
@@ -25,6 +27,7 @@ export interface DocumentUpload {
 export interface DocumentSubmission {
   clientId: string;
   documents: DocumentUpload[];
+  jurist: JuristName; // Added jurist field
 }
 
 export interface ProcessedDocument {
