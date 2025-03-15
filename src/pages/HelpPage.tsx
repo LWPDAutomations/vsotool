@@ -4,9 +4,9 @@ import Card from '../components/ui/Card';
 const HelpPage: React.FC = () => {
   return (
     <div className="space-y-8">
-      <h1 className="text-2xl font-bold">Gebruiksaanwijzing VSO Document Systeem</h1>
+      <h1 className="text-2xl font-bold">Gebruiksaanwijzing VSO Beoordelings Systeem</h1>
       <p className="text-gray-700">
-        Welkom bij het VSO Document Systeem van De Nationale Adviesbalie. 
+        Welkom bij het VSO Beoordelings Systeem van De Nationale Adviesbalie. 
         Deze handleiding helpt u stap voor stap bij het gebruik van het platform.
       </p>
 
@@ -152,78 +152,62 @@ const HelpPage: React.FC = () => {
                 <p>Klik op "Cliëntendatabase" in het hoofdmenu.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/database_menu.jpg" 
+                    src="/assets/help/3.1.png" 
                     alt="Menu met Cliëntendatabase optie" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van het hoofdmenu met "Cliëntendatabase" gemarkeerd]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>U ziet nu een overzicht van alle cliënten in het systeem.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/client_database.jpg" 
+                    src="/assets/help/3.2.png" 
                     alt="Cliëntendatabase overzicht" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de cliëntendatabase pagina met lijst van cliënten]
-                  </p>
                 </div>
               </li>
               <li>
                 <p><strong>Zoeken naar een cliënt:</strong> Gebruik het zoekveld bovenaan om te zoeken op naam, referentie, e-mail of werkgever.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/search_client.jpg" 
+                    src="/assets/help/3.3.png" 
                     alt="Zoekfunctie voor cliënten" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de zoekfunctie met een voorbeeld zoekopdracht]
-                  </p>
+      
                 </div>
               </li>
               <li>
                 <p><strong>Sorteren:</strong> Klik op een kolomkop om de lijst te sorteren op die eigenschap.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/sort_clients.jpg" 
+                    src="/assets/help/3.4.png" 
                     alt="Sorteren van cliëntenlijst" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot die toont hoe op een kolomkop wordt geklikt om te sorteren]
-                  </p>
+              
                 </div>
               </li>
               <li>
                 <p><strong>Documenten bekijken:</strong> Klik op de knop "Documenten" naast een cliënt om naar de documentenpagina te gaan.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/client_documents_button.jpg" 
+                    src="/assets/help/3.5.png" 
                     alt="Documenten knop bij cliënt" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de Documenten knop bij een cliënt in de lijst]
-                  </p>
                 </div>
               </li>
               <li>
                 <p><strong>Cliënt verwijderen:</strong> Klik op de knop "Verwijderen" naast een cliënt en bevestig in het dialoogvenster.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/delete_confirmation.jpg" 
+                    src="/assets/help/3.6.png" 
                     alt="Bevestigingsdialoog voor verwijderen" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van het bevestigingsdialoog bij het verwijderen van een cliënt]
-                  </p>
                 </div>
               </li>
             </ol>
@@ -252,52 +236,40 @@ const HelpPage: React.FC = () => {
                 <p>Klik op "VSO Beoordelen" in het hoofdmenu.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/vso_menu.jpg" 
+                    src="/assets/help/4.1.png" 
                     alt="Menu met VSO Beoordelen optie" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van het menu met "VSO Beoordelen" gemarkeerd]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>Selecteer een cliënt uit de lijst of zoek een cliënt met behulp van het zoekveld.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/client_selection.jpg" 
+                    src="/assets/help/4.2.png" 
                     alt="Cliëntselectie pagina" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de cliëntselectie met zoekfunctie en dropdown]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>Na het selecteren van een cliënt verschijnen de cliëntgegevens op het scherm.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/selected_client.jpg" 
+                    src="/assets/help/4.3.png" 
                     alt="Geselecteerde cliëntgegevens" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de weergave met geselecteerde cliëntgegevens]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>Als u een andere cliënt wilt kiezen, klik dan op de knop "Andere cliënt kiezen" rechts bovenaan.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/change_client.jpg" 
+                    src="/assets/help/4.4.png" 
                     alt="Andere cliënt kiezen knop" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de "Andere cliënt kiezen" knop]
-                  </p>
                 </div>
               </li>
               <li>
@@ -307,26 +279,20 @@ const HelpPage: React.FC = () => {
                 <p>Nadat u alle benodigde documenten heeft toegevoegd, klikt u op de knop "Beoordeling aanvragen".</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/request_assessment.jpg" 
+                    src="/assets/help/4.6.png" 
                     alt="Beoordeling aanvragen knop" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de "Beoordeling aanvragen" knop]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>U ontvangt een bevestiging dat de beoordeling is aangevraagd. De resultaten worden binnen 5 minuten naar uw e-mail gestuurd.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/assessment_confirmation.jpg" 
+                    src="/assets/help/4.7.png" 
                     alt="Bevestiging van beoordeling aanvraag" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de bevestigingsmelding na het aanvragen van een beoordeling]
-                  </p>
                 </div>
               </li>
             </ol>
@@ -355,26 +321,20 @@ const HelpPage: React.FC = () => {
                 <p>In het formulier voor VSO beoordeling, selecteer eerst het type document dat u wilt uploaden.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/document_type.jpg" 
+                    src="/assets/help/5.1.png" 
                     alt="Documenttype selectie" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de documenttype selectie dropdown]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>Klik op "Bestand kiezen" om een bestand van uw computer te selecteren.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/file_select.jpg" 
+                    src="/assets/help/5.2.png" 
                     alt="Bestand kiezen knop" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de "Bestand kiezen" knop en bestandselectie dialoog]
-                  </p>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">Ondersteunde bestandsformaten: .jpg, .jpeg, .png, .pdf, .doc, .docx</p>
               </li>
@@ -382,52 +342,40 @@ const HelpPage: React.FC = () => {
                 <p>U kunt meerdere bestanden toevoegen door nogmaals op "Bestand kiezen" te klikken.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/multiple_files.jpg" 
+                    src="/assets/help/5.3.png" 
                     alt="Meerdere bestanden geselecteerd" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van meerdere geselecteerde bestanden in de lijst]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>Als u een bestand wilt verwijderen uit de selectie, klik dan op het kruisje naast het bestand.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/remove_file.jpg" 
+                    src="/assets/help/5.4.png" 
                     alt="Bestand verwijderen uit selectie" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot die toont hoe een bestand uit de selectie wordt verwijderd]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>Klik op "Document toevoegen" om de geselecteerde bestanden toe te voegen.</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/add_document_button.jpg" 
+                    src="/assets/help/5.5.png" 
                     alt="Document toevoegen knop" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de "Document toevoegen" knop]
-                  </p>
                 </div>
               </li>
               <li>
                 <p>U ziet nu de toegevoegde documenten in de lijst "Toegevoegde documenten".</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/added_documents.jpg" 
+                    src="/assets/help/5.6.png" 
                     alt="Lijst met toegevoegde documenten" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot van de lijst met toegevoegde documenten]
-                  </p>
                 </div>
               </li>
               <li>
@@ -437,13 +385,10 @@ const HelpPage: React.FC = () => {
                 <p>Als u een document uit de lijst wilt verwijderen, klik dan op het kruisje naast het document in de lijst "Toegevoegde documenten".</p>
                 <div className="bg-gray-100 p-4 my-2 rounded-md">
                   <img 
-                    src="/assets/help/remove_document.jpg" 
+                    src="/assets/help/5.7.png" 
                     alt="Document verwijderen uit lijst" 
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    [Screenshot die toont hoe een document uit de lijst wordt verwijderd]
-                  </p>
                 </div>
               </li>
             </ol>
@@ -455,7 +400,6 @@ const HelpPage: React.FC = () => {
               <li>Vaststellingsovereenkomst (VSO)</li>
               <li>Arbeidsovereenkomst</li>
               <li>Loonstroken</li>
-              <li>Identiteitsbewijs (indien vereist)</li>
               <li>Andere relevante documenten</li>
             </ul>
           </div>
@@ -463,7 +407,7 @@ const HelpPage: React.FC = () => {
           <div className="bg-yellow-50 p-4 rounded-md mt-4">
             <h4 className="font-medium text-yellow-800">Let op:</h4>
             <p className="text-yellow-700">
-              Zorg ervoor dat alle bestanden duidelijk leesbaar zijn. Onvolledige of onleesbare documenten kunnen leiden tot vertraging in de beoordeling.
+              Zorg ervoor dat alle bestanden duidelijk leesbaar zijn. Onvolledige of onleesbare documenten kunnen leiden tot vertraging en beperkte kwaliteit in de beoordeling.
             </p>
           </div>
         </div>
@@ -472,16 +416,16 @@ const HelpPage: React.FC = () => {
       {/* Extra informatie */}
       <Card title="Hulp en ondersteuning">
         <p className="mb-4">
-          Heeft u vragen of loopt u tegen problemen aan bij het gebruik van het VSO Document Systeem? Neem dan contact op met onze helpdesk:
+          Heeft u vragen of loopt u tegen problemen aan bij het gebruik van het VSO Beoordelings Systeem? Neem dan contact op met onze helpdesk:
         </p>
         <ul className="list-disc pl-5 space-y-2">
-          <li><strong>E-mail:</strong> <a href="mailto:support@nationaleadviesbalie.nl" className="text-nab-orange hover:underline">support@nationaleadviesbalie.nl</a></li>
-          <li><strong>Telefoon:</strong> 030-123 45 67 (bereikbaar op werkdagen van 9:00 tot 17:00 uur)</li>
+          <li><strong>E-mail:</strong> <a href="mailto:lars.duinhouwer@promptgorillas.com" className="text-nab-orange hover:underline">lars.duinhouwer@promptgorillas.com</a></li>
+          <li><strong>Telefoon:</strong> 06-10 54 10 60 (bereikbaar op werkdagen van 9:00 tot 17:00 uur)</li>
         </ul>
         
         <div className="mt-6 p-4 bg-gray-50 rounded-md">
           <p className="text-sm text-gray-500 italic">
-            Deze handleiding is laatst bijgewerkt op 14 maart 2025. Het VSO Document Systeem wordt regelmatig bijgewerkt, dus sommige schermafbeeldingen kunnen afwijken van de huidige versie.
+            Deze handleiding is laatst bijgewerkt op 14 maart 2025. Het VSO Beoordelings Systeem wordt regelmatig bijgewerkt, dus sommige schermafbeeldingen kunnen afwijken van de huidige versie.
           </p>
         </div>
       </Card>
