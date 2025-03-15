@@ -160,6 +160,12 @@ const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentAdded }) => {
                 Toegestane bestandsformaten: {ALLOWED_EXTENSIONS}
               </p>
               
+              {/* Waarschuwing over bestandsvolgorde */}
+              <div className="p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm mt-2">
+                <p className="font-bold">Let op!</p>
+                <p>Bij meerdere foto's of scans die bij elkaar horen, is de volgorde belangrijk. Zorg ervoor dat u deze bestanden in de juiste volgorde selecteert.</p>
+              </div>
+              
               {error && (
                 <div className="mt-2 p-3 bg-red-50 text-red-700 rounded-md text-sm">
                   {error}

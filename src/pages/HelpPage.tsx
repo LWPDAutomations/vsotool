@@ -347,6 +347,12 @@ const HelpPage: React.FC = () => {
                     className="mx-auto border border-gray-300 rounded-md max-w-full"
                   />
                 </div>
+                <div className="bg-yellow-50 p-4 rounded-md mt-2">
+                  <h4 className="font-medium text-yellow-800">Let op:</h4>
+                  <p className="text-yellow-700">
+                    <strong>Bij meerdere foto's of scans die bij elkaar horen, is de volgorde belangrijk!</strong> Zorg ervoor dat u deze bestanden in de juiste volgorde selecteert, zodat het systeem ze correct kan verwerken.
+                  </p>
+                </div>
               </li>
               <li>
                 <p>Als u een bestand wilt verwijderen uit de selectie, klik dan op het kruisje naast het bestand.</p>
