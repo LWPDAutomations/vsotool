@@ -35,6 +35,7 @@ export const submitAssessment = async (
           name,
           originalName: file.name,
           type: docUpload.type,
+          mimeType: file.type, // Add MIME type from the file object
           fileContent
         });
       }

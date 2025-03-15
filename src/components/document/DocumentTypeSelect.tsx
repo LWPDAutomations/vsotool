@@ -14,10 +14,21 @@ const DocumentTypeSelect: React.FC<DocumentTypeSelectProps> = ({
   error,
 }) => {
   const documentTypeOptions = [
-    { value: 'VSO', label: 'Vaststellingsovereenkomst (VSO)' },
+    { value: 'Vaststellingsovereenkomst', label: 'Vaststellingsovereenkomst (VSO)' },
+    { value: 'Begeleidend schrijven wg bij vso', label: 'Begeleidend schrijven werkgever bij VSO' },
+    { value: 'Aangeleverde info van werknemer', label: 'Aangeleverde info van werknemer' },
     { value: 'Arbeidsovereenkomst', label: 'Arbeidsovereenkomst' },
     { value: 'Loonstrook', label: 'Loonstrook' },
-    { value: 'Identiteitsbewijs', label: 'Identiteitsbewijs' },
+    { value: 'CAO', label: 'CAO' },
+    { value: 'Personeelshandboek', label: 'Personeelshandboek' },
+    { value: 'Telefoonnotitie n.a.v. intake', label: 'Telefoonnotitie n.a.v. intake' },
+    { value: 'Rapport bedrijfsarts', label: 'Rapport bedrijfsarts' },
+    { value: 'WIA-beschikking', label: 'WIA-beschikking' },
+    { value: 'Bonusregeling', label: 'Bonusregeling' },
+    { value: 'Autoregeling', label: 'Autoregeling' },
+    { value: 'Sociaal plan', label: 'Sociaal plan' },
+    { value: 'Correspondentie tussen wg-wn', label: 'Correspondentie tussen werkgever-werknemer' },
+    { value: 'Beoordelings/functioneringsverslag', label: 'Beoordelings/functioneringsverslag' },
     { value: 'Overig', label: 'Overig document' },
   ];
 

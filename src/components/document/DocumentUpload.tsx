@@ -22,7 +22,8 @@ const ALLOWED_FILE_TYPES = [
 const ALLOWED_EXTENSIONS = '.jpg, .jpeg, .png, .pdf, .doc, .docx';
 
 const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentAdded }) => {
-  const [documentType, setDocumentType] = useState<DocumentType>('VSO');
+  // Update the initial state to use the new default document type
+  const [documentType, setDocumentType] = useState<DocumentType>('Vaststellingsovereenkomst');
   const [files, setFiles] = useState<File[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -121,7 +122,7 @@ const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentAdded }) => {
     onDocumentAdded(newDocument);
 
     // Reset formulier
-    setDocumentType('VSO');
+    setDocumentType('Vaststellingsovereenkomst');
     clearSelectedFiles();
     setError(null);
   };
