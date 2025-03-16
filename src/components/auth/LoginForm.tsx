@@ -10,6 +10,7 @@ const LoginForm: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
   const { login } = useAuth();
   const { addNotification } = useNotification();
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const LoginForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setLoginError(null); // Clear previous error
 
     try {
       const success = login(username, password);
@@ -25,9 +27,11 @@ const LoginForm: React.FC = () => {
         addNotification('success', 'Succesvol ingelogd');
         navigate('/clients');
       } else {
+        setLoginError('Ongeldige gebruikersnaam of wachtwoord');
         addNotification('error', 'Ongeldige inloggegevens');
       }
     } catch (error) {
+      setLoginError('Er is een fout opgetreden bij het inloggen');
       addNotification('error', 'Er is een fout opgetreden bij het inloggen');
     } finally {
       setIsLoading(false);
@@ -64,6 +68,12 @@ const LoginForm: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
+        {loginError && (
+          <div className="mt-2 mb-4 text-sm text-red-500">
+            {loginError}
+          </div>
+        )}
 
         <Button
           type="submit"
