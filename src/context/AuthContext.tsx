@@ -112,8 +112,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   }, [isAuthenticated, resetSessionTimer, startSessionTimer, sessionTimer]);
 
   const login = useCallback((username: string, password: string): boolean => {
-    // Harde verificatie zoals besproken
-    if (username === 'Jurist*NAB' && password === 'Jurist*NABvsoTool746#') {
+    // Get credentials from environment variables
+    const validUsername = import.meta.env.VITE_AUTH_USERNAME;
+    const validPassword = import.meta.env.VITE_AUTH_PASSWORD;
+    
+    // Check if environment variables are set
+    if (!validUsername || !validPassword) {
+      console.error('Authentication credentials not properly configured in environment variables');
+      return false;
+    }
+    
+    // Verify credentials
+    if (username === validUsername && password === validPassword) {
       setIsAuthenticated(true);
       localStorage.setItem('isAuthenticated', 'true');
       updateActivityTimestamp();
